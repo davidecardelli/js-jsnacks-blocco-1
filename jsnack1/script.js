@@ -10,10 +10,24 @@ let sum = 0;
 
 // Chiedo 10 volte all'utente un numero, quindi mi credo un ciclo da 0 a < 10
 
-for (let i = 0; i < 10; i++) {
+let isValid = true
 
-    const userNumber = parseInt(prompt('Inserisci un numero intero, 1').trim());
-    
-    sum += number;
+for (let i = 0; isValid && i < 10; i++) {
+
+    const number = parseInt(prompt('Inserisci un numero intero').trim());
+
+    // Faccio la validazione
+    if (isNaN(number)) {
+        isValid = false;
+    } else {
+        sum += number;
+    }
 
 }
+
+// Stampo in pagina la somma dei numeri
+
+const message = isValid ? `La somma dei tuoi numeri è ${sum}` : `Hai inserito valori non validi`;
+console.log(message);
+
+result.innerText = message;
